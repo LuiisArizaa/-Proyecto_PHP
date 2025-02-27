@@ -3,8 +3,8 @@
 $db_host = "localhost";
 $db_user = "root";  // Por defecto en XAMPP suele ser "root"
 $db_password = "";     // En XAMPP, por defecto suele estar vacío: ""
-$db_name = "php_project";      // Nombre de la base de datos creada
-$db_table_name = "usuarios";     // Nombre de la tabla creada
+$db_name = "php_proyecto";      // Nombre de la base de datos creada
+$db_table_name = "inicio";     // Nombre de la tabla creada
 
 // Crear la conexión a MySQL usando mysqli
 $conn = mysqli_connect($db_host, $db_user, $db_password, $db_name);
@@ -13,13 +13,15 @@ if (!$conn) {
 }
 
 // Creamos las variables con la información del cliente enviada a través del formulario
-$nombre = $_POST['name'];
-$apellido = $_POST['surname'];
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellidos'];
 $usuario = $_POST['email'];
-$password = $_POST['password'];
+$password = $_POST['contraseña'];
+$nombre_usuario = $_POST['usuario'];
+$fecha_nacimiento = $_POST['fecha'];
 
 // Consulta SQL para buscar el usuario en la base de datos
-$sql = "SELECT * FROM `$db_table_name` WHERE email = '$usuario'";
+$sql = "SELECT * FROM `$db_table_name` WHERE Email = '$usuario'";
 $resultado = mysqli_query($conn, $sql);
 
 if (!$resultado) {
@@ -31,7 +33,7 @@ if (mysqli_num_rows($resultado) > 0) {
    exit;
 } else {
    // Insertar el nuevo registro
-   $sql_insert = "INSERT INTO `$db_table_name` (nombre, apellido, email, contraseña) VALUES ('$nombre', '$apellido', '$usuario', '$password')";
+   $sql_insert = "INSERT INTO `$db_table_name` (Nombre, Apellidos, Email, Contraseña, `Nombre usuario`, `Fecha Nacimiento`) VALUES ('$nombre', '$apellido', '$usuario', '$password', '$nombre_usuario', '$fecha_nacimiento')";
    $retry_value = mysqli_query($conn, $sql_insert);
 
    if (!$retry_value) {
