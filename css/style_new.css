@@ -2,14 +2,14 @@ body {
     display: flex;
     margin: 0;
     background-color: #6f4f28;
-    justify-content: center;
+    justify-content: center; /*Centra el contenido horizontalmente*/
     align-items: center;  /* Para centrar contenido verticalmente */
 }
 
 main{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;  /*Organiza los elementos de main en una columna de manera vertical */
+    align-items: center;  /* Centra los elementos horizontalmente dentro de main */
     background-color: aliceblue;
     margin: 2rem;
     padding: 2rem;
@@ -18,8 +18,11 @@ main{
 }
 
 .titulo{
-    display: flex;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #3e2723;  /*Pongo este color de letra porque el negro oscuro no se suele poner*/
+    margin-bottom: 1rem; /* Añade un margen abajo del título para separarlo de los elementos siguientes */
+    
 }
 
 .formulario{
